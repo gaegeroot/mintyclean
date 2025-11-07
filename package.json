@@ -2,12 +2,12 @@
   "name": "minty-clean-1.0",
   "version": "1.0.0",
   "description": "Minty Clean website",
-  "main": "index.js",
+  "main": ".eleventy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "eleventy --serve --watch",
     "build": "eleventy",
-    "build-ghpages": "npx @11ty/eleventy",
+    "build-ghpages": "eleventy"
   },
   "keywords": [],
   "author": "",
