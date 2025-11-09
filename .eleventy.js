@@ -1,7 +1,22 @@
 const { DateTime } = require("luxon");
+const eleventySass = require("eleventy-sass");
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("assets");
+    eleventyConfig.addPlugin(eleventySass, {
+        compileOptions: {
+            permalink: function (contents, inputPath) {
+                // Only process SCSS files in src/assets/scss/
+                if (!inputPath.includes("src/assets/scss")) return false;
+
+                return (data) => {
+                    // Take just the filename (e.g., main.scss → main.css)
+                    const filename = inputPath.split("/").pop().replace(".scss", ".css");
+                    return `/assets/css/${filename}`;
+                };
+            }
+        }
+    });
 
     const blogCategories = [
         'automation',

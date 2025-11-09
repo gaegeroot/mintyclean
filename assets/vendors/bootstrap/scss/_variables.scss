@@ -385,7 +385,8 @@ $enable-deprecation-messages: true !default;
 $enable-important-utilities:  true !default;
 
 $enable-dark-mode:            true !default;
-$color-mode-type:             data !default; // `data` or `media-query`
+$color-mode-type:             data !default; 
+// `data` or `media-query`
 
 // Prefix for :root CSS variables
 
@@ -415,6 +416,11 @@ $spacers: (
   3: $spacer,
   4: $spacer * 1.5,
   5: $spacer * 3,
+  6: $spacer * 5,
+  7: $spacer * 7,
+  8: $spacer * 10,
+  9: $spacer * 14,
+  10: $spacer * 20
 ) !default;
 // scss-docs-end spacer-variables-maps
 
