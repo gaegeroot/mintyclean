@@ -3,22 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Minty Clean - Premier Tucson Cleaning</title>
+        <title>{{ title or site.title }}</title>
+
+        <meta property="og:image" content="{{ (socialImage or site.socialImage) | url }}">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
-        {# <link href="{{ '/assets/vendors/bootstrap/bootstrap.min.css' | url }}" rel="stylesheet"> #}
-        <link href="{{ '/assets/css/main.css' | url }}" rel="stylesheet">
-        <link href="{{ '/assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css' | url }}" rel="stylesheet">
-        <link href="{{ '/assets/vendors/glightbox/glightbox.min.css' | url }}" rel="stylesheet">
-        <link href="{{ '/assets/vendors/swiper/swiper-bundle.min.css' | url }}" rel="stylesheet">
-        <link href="{{ '/assets/vendors/aos/aos.css' | url }}" rel="stylesheet">
-        <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
-        <link rel="icon" type="image/png" href="{{ '/assets/images/favicons/favicon-96x96.png' | url }}" sizes="96x96"/>
-        <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicons/favicon.svg' | url }}"/>
-        <link rel="shortcut icon" href="{{ '/assets/images/favicons/favicon.ico' | url }}"/>
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicons/apple-touch-icon.png' | url }}"/>
-        <link rel="manifest" href="{{ '/assets/images/favicons/site.webmanifest' | url }}"/>
+        <link href="/assets/css/main.css" rel="stylesheet">
+        <link href="/assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+        <link href="/assets/vendors/glightbox/glightbox.min.css" rel="stylesheet">
+        <link href="/assets/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <link href="/assets/vendors/aos/aos.css" rel="stylesheet">
+        <link href="/assets/css/style.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96"/>
+        <link rel="icon" type="image/svg+xml" href="/assets/images/favicons/favicon.svg"/>
+        <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png"/>
+        <link rel="manifest" href="/assets/images/favicons/site.webmanifest"/>
         <script>
             // Apply the theme as early as possible to avoid flicker
             (function () {
@@ -33,13 +35,13 @@
                 <div
                     class="container d-flex align-items-center justify-content-between">
                     <!-- Start Logo-->
-                    <a class="navbar-brand w-auto" href="{{ '/' | url }}">
+                    <a class="navbar-brand w-auto" href="/">
                         <!-- If you use a text logo, uncomment this if it is commented-->
                         <!-- Vertex-->
                         <!-- If you plan to use an image logo, uncomment this if it is commented-->
                         <!-- logo dark--> <img
-                        class="logo dark img-fluid" src="{{ '/assets/images/minty_logo.png' | url }}" alt="image placeholder" width="160"> <!-- logo light-->
-                        <img class="logo light img-fluid" src="{{ '/assets/images/minty_logo.png' | url }}" alt="image placeholder" width="160">
+                        class="logo dark img-fluid" src="/assets/images/minty_logo.png" alt="image placeholder" width="160"> <!-- logo light-->
+                        <img class="logo light img-fluid" src="/assets/images/minty_logo.png" alt="image placeholder" width="160">
                     </a>
                     <!-- End Logo-->
                     <!-- Start offcanvas-->
@@ -52,8 +54,8 @@
                                     <a
                                     class="logo-link" id="fbs__net-navbarsLabel" href="index.html"> <!-- logo dark-->
                                     <img
-                                    class="logo dark img-fluid" src="{{ '/assets/images/minty_logo.png' | url }}" alt="image placeholder"> <!-- logo light-->
-                                    <img class="logo light img-fluid" src="{{ '/assets/images/minty_logo.png' | url }}" alt="image placeholder"></a>
+                                    class="logo dark img-fluid" src="/assets/images/minty_logo.png" alt="image placeholder"> <!-- logo light-->
+                                    <img class="logo light img-fluid" src="/assets/images/minty_logo.png" alt="image placeholder"></a>
                             </div>
                             <button class="btn-close btn-close-black" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
@@ -196,15 +198,15 @@
         </button>
         <!-- End Back to top-->
         <!-- ======= Javascripts =======-->
-        <script src="{{ '/assets/vendors/bootstrap/bootstrap.bundle.min.js' | url }}"></script>
-        <script src="{{ '/assets/vendors/gsap/gsap.min.js' | url }}"></script>
-        <script src="{{ '/assets/vendors/imagesloaded/imagesloaded.pkgd.min.js' | url }}"></script>
-        <script src="{{ '/assets/vendors/isotope/isotope.pkgd.min.js' | url }}"></script>
-        <script src="{{ '/assets/vendors/glightbox/glightbox.min.js' | url }}"></script>
-        <script src="{{ '/assets/vendors/swiper/swiper-bundle.min.js' | url }}"></script>
-        <script src="{{ '/assets/vendors/aos/aos.js' | url }}"></script>
-        <script src="{{ '/assets/vendors/purecounter/purecounter.js' | url }}"></script>
-        <script src="{{ '/assets/js/custom.js' | url }}"></script>
+        <script src="/assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+        <script src="/assets/vendors/gsap/gsap.min.js"></script>
+        <script src="/assets/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/vendors/isotope/isotope.pkgd.min.js"></script>
+        <script src="/assets/vendors/glightbox/glightbox.min.js"></script>
+        <script src="/assets/vendors/swiper/swiper-bundle.min.js"></script>
+        <script src="/assets/vendors/aos/aos.js"></script>
+        <script src="/assets/vendors/purecounter/purecounter.js"></script>
+        <script src="/assets/js/custom.js"></script>
         <!-- End JavaScripts-->
     </body>
 </html>

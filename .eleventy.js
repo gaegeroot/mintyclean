@@ -1,8 +1,11 @@
 const { DateTime } = require("luxon");
 const eleventySass = require("eleventy-sass");
 
-module.exports = function (eleventyConfig) {
+module.exports =  async function (eleventyConfig) {
+    const { HtmlBasePlugin } = await import("@11ty/eleventy");
+
     eleventyConfig.addPassthroughCopy("assets");
+    eleventyConfig.addPlugin(HtmlBasePlugin);
     eleventyConfig.addPlugin(eleventySass, {
         compileOptions: {
             permalink: function (contents, inputPath) {
