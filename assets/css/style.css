@@ -678,6 +678,10 @@ h6 {
   -webkit-box-shadow: 0 0px 2px rgba(var(--inverse-color-rgb), 0.15);
   box-shadow: 0 0px 2px rgba(var(--inverse-color-rgb), 0.15);
 }
+
+.fbs__net-navbar.dark .header-social a.btn:hover {
+    background-color: var(--bs-primary-hover);
+}
 .fbs__net-navbar.dark .navbar-brand .logo.dark {
   display: block;
 }
