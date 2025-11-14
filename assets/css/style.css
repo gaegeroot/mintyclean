@@ -46,6 +46,32 @@ body {
   color: var(--bs-white);
 }
 
+input[type="range"]::-webkit-slider-thumb {
+  background: var(--bs-primary);
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important; 
+  box-shadow: none !important;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  background-color:  var(--bs-primary);
+}
+
+.btn-check+.btn:hover {
+   border: 1px solid var(--bs-primary-hover);
+}
+
+.form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  border-
+}
+
+.form-check-input:focus {
+    box-shadow: none;
+}
+
 a {
   -webkit-transition: 0.3s all ease-in-out;
   transition: 0.3s all ease-in-out;
@@ -71,8 +97,8 @@ h6 {
 }
 
 .section {
-  padding: 70px 0;
-  scroll-margin-top: 60px;
+  padding: 80px 0;
+  scroll-margin-top: 80px;
 }
 @media (max-width: 767.98px) {
   .section {
@@ -160,8 +186,8 @@ h6 {
 .btn:active,
 .btn:focus {
   color: var(--bs-white);
-  background-color: var(--bs-primary-hover) !important;
-  border: 1px solid var(--bs-primary-hover) !important;
+  background-color: var(--bs-primary-hover);
+  border: 1px solid var(--bs-primary-hover);
 }
 .btn.btn-white.hover-outline {
   background-color: var(--bs-white) !important;
@@ -558,10 +584,9 @@ h6 {
   width: 30px;
   height: 30px;
   line-height: 30px;
-  text-align: center;
+  text-align: center; @
   border-radius: 4px;
   display: inline-block;
-  background-color: transparent;
 }
 .fbs__net-navbar .header-social a:hover {
   background-color: rgba(var(--bs-white-rgb), 0.1);
@@ -574,9 +599,8 @@ h6 {
 .fbs__net-navbar .header-social .btn {
   width: auto !important;
   height: auto !important;
-  background-color: var(--bs-primary) !important;
-  color: var(--bs-white) !important;
 }
+
 @media (max-width: 575.98px) {
   .fbs__net-navbar .header-social .btn {
     display: none;
@@ -660,13 +684,6 @@ h6 {
 
 .fbs__net-navbar.dark .navbar-brand .logo.light {
   display: none;
-}
-
-.fbs__net-navbar.dark a {
-  color: var(--inverse-color) !important;
-}
-.fbs__net-navbar.dark a:hover {
-  color: var(--inverse-color);
 }
 .fbs__net-navbar.dark .header-social a:hover {
   background-color: rgba(var(--inverse-color-rgb), 0.05);
