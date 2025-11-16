@@ -58,10 +58,6 @@ input[type="range"]::-webkit-slider-thumb:active {
   background-color:  var(--bs-primary);
 }
 
-.btn-check+.btn:hover {
-   border: 1px solid var(--bs-primary-hover);
-}
-
 .form-check-input:checked {
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
@@ -209,6 +205,28 @@ h6 {
 .btn.btn-white-outline:active {
   background-color: transparent !important;
   border: 1px solid rgba(var(--inverse-color-rgb), 0.5) !important;
+}
+
+.btn-check+.btn
+ {
+    color: var(--bs-primary);
+    background-color: transparent;
+    border-color: var(--bs-primary);
+    transition: transform 0.25s ease-in-out;
+}
+
+.btn-check+.btn:hover {
+    color: white;
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    transform: translateY(-2px);
+}
+
+.btn-check:checked+.btn
+ {
+    color: white;
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
 }
 
 .block-squares {
@@ -1279,4 +1297,10 @@ h6 {
   bottom: 20px;
   opacity: 1;
   visibility: visible;
+}
+
+@media all and (max-width: 991.98px) {
+    main {
+        padding-top: 60px;
+    }
 }

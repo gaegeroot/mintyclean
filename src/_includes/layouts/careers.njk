@@ -1,339 +1,492 @@
 {% extends "base.njk" %}
 {% block content %}
+    <style>
+        .subtitle {
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .sidebar-element {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .sidebar-element i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .sidebar-element strong {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .sidebar-element p {
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .summary-box {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            position: sticky;
+            top: 80px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .summary-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .form-control,
+        .form-select {
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-family: 'Quattrocento', serif;
+        }
+        .form-control:focus,
+        .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.1);
+        }
+        .tos-text {
+            font-size: 0.875rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+        small.text-muted {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+        .success-message {
+            text-align: center;
+            padding: 3rem;
+        }
+        .success-message i {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+        .success-message h2 {
+            margin-bottom: 1rem;
+        }
+        .success-message .alert {
+            border-radius: 0.75rem;
+            padding: 1rem;
+            background-color: #198754;
+            border: none;
+            color: #fff;
+            font-weight: 600;
+        }
+        hr {
+            margin: 2.5rem 0;
+            opacity: 0.1;
+        }
+    </style>
     <main>
-        <!-- Hero Section -->
-        <section class="pt-8">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <span class="subtitle text-uppercase mb-3" data-aos="fade-up" data-aos-delay="0">Join Our Team</span>
-                        <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100">Join the Minty Team</h1>
-                        <p class="fs-5 mb-4" data-aos="fade-up" data-aos-delay="200">We're looking for part-time cleaning technicians who want
-                            to grow with us! This is more than just a cleaning job – it's an opportunity to build a career with a company that
-                            values quality, integrity, and personal growth.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- What Makes This Different -->
-        <section class="section features__v2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-lg-flex p-5 rounded-4 content" data-aos="fade-in" data-aos-delay="0">
-                            <div class="row">
-                                <div class="col-lg-5 mb-4 mb-lg-0">
-                                    <h2 class="mb-4">What Makes This Different</h2>
-                                    <p class="mb-4">
-                                        <strong>Flexible part-time hours</strong>
-                                        (10-20 hours/week) that work around YOUR schedule</p>
-                                    <p class="mb-4">
-                                        <strong>Real growth potential</strong>
-                                        – we're looking for future leaders</p>
-                                    <p class="mb-4">
-                                        <strong>Great pay</strong>
-                                        starting at $20.50/hour plus travel time, gas stipends, and tips</p>
-                                    <p>
-                                        <strong>Professional environment</strong>
-                                        with ongoing training and support</p>
-                                </div>
-                                <div class="col-lg-7">
-                                    <div class="row justify-content-end">
-                                        <div class="col-lg-11">
-                                            <h3 class="fs-5 fw-bold mb-4">The Role</h3>
-                                            <p class="mb-4">You'll provide top-quality residential cleaning throughout Tucson, traveling to different client
-                                                locations (up to 30-45 minute drive times). This position requires reliable transportation and the ability to work
-                                                independently.</p>
-                                            <h3 class="fs-5 fw-bold mb-3">We're looking for someone who is:</h3>
-                                            <ul class="d-flex flex-row flex-wrap list-unstyled gap-3 features">
-                                                <li class="d-flex align-items-center gap-2">
-                                                    <span class="icon rounded-circle text-center">
-                                                        <i class="bi bi-check"></i>
-                                                    </span>
-                                                    <span class="text">Reliable and detail-oriented</span>
-                                                </li>
-                                                <li class="d-flex align-items-center gap-2">
-                                                    <span class="icon rounded-circle text-center">
-                                                        <i class="bi bi-check"></i>
-                                                    </span>
-                                                    <span class="text">Ready to learn and grow</span>
-                                                </li>
-                                                <li class="d-flex align-items-center gap-2">
-                                                    <span class="icon rounded-circle text-center">
-                                                        <i class="bi bi-check"></i>
-                                                    </span>
-                                                    <span class="text">Positive and adaptable</span>
-                                                </li>
-                                                <li class="d-flex align-items-center gap-2">
-                                                    <span class="icon rounded-circle text-center">
-                                                        <i class="bi bi-check"></i>
-                                                    </span>
-                                                    <span class="text">Looking for more than just a paycheck</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Next Steps -->
         <section class="section">
             <div class="container">
-                <div class="row mb-4">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <h2 class="mb-3" data-aos="fade-up" data-aos-delay="0">Next Steps</h2>
-                        <p data-aos="fade-up" data-aos-delay="100">After you submit your application, qualified candidates will be invited to a first round interview/information session where you'll learn more about Minty, meet our team, and have your questions answered. If there's a good fit, we'll invite you to a second interview before making a final decision.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Application Form -->
-        <section class="section contact__v2">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <h2 class="mb-3" data-aos="fade-up" data-aos-delay="0">Ready to Apply?</h2>
-                        <p data-aos="fade-up" data-aos-delay="100">Fill out the form below and we'll be in touch within 24 hours.</p>
-                    </div>
-                </div>
                 <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="form-wrapper" data-aos="fade-up" data-aos-delay="0">
-                            <form
-                                id="applicationForm">
+                    <!-- Main Form -->
+                    <div class="col-lg-8">
+                        <div class="form-container">
+                            <div class="text-center mb-5" id="form-header">
+                                <span class="subtitle">Join Our Team</span>
+                                <h2 class="mb-4">Apply to Work at Minty Clean</h2>
+                                <h5 class="text-muted fw-normal mb-4">We're looking for reliable, detail-oriented cleaners who care about quality</h5>
+                                <p class="text-muted">
+                                    Thanks for your interest in joining our team! We're a small cleaning company that takes pride in doing excellent work. 
+                                    We're looking for people who are reliable, pay attention to details, and want to be part of a team that actually cares 
+                                    about doing a good job. Fill out the form below and we'll get back to you soon.
+                                </p>
+                            </div>
+                            <hr>
+                            <form id="careerForm" novalidate>
                                 <!-- Personal Information -->
-                                <h3 class="fs-5 mb-4">Personal Information</h3>
+                                <h3 class="form-section-title">Personal Information</h3>
+                                
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-6">
-                                        <label class="mb-2" for="firstName">First Name *</label>
-                                        <input class="form-control" id="firstName" name="firstName" type="text" required>
+                                        <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" required placeholder="Enter your first name">
+                                        <div class="invalid-feedback">Please enter your first name.</div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="mb-2" for="lastName">Last Name *</label>
-                                        <input class="form-control" id="lastName" name="lastName" type="text" required>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="email">Email Address *</label>
-                                        <input class="form-control" id="email" name="email" type="email" required>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="phone">Phone Number *</label>
-                                        <input class="form-control" id="phone" name="phone" type="tel" required>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="location">Current City/Neighborhood *</label>
-                                        <input class="form-control" id="location" name="location" type="text" required>
+                                        <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" required placeholder="Enter your last name">
+                                        <div class="invalid-feedback">Please enter your last name.</div>
                                     </div>
                                 </div>
-                                <!-- Availability & Requirements -->
-                                <h3 class="fs-5 mb-4 mt-5">Availability & Requirements</h3>
-                                <div class="row gap-3 mb-4">
-                                    <div class="col-md-12">
-                                        <label class="mb-2">Do you have a reliable vehicle, a valid driver's license, and current insurance? *</label>
-                                        <div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasTransportation" id="transportYes" value="yes" required>
-                                                <label class="form-check-label" for="transportYes">Yes</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasTransportation" id="transportNo" value="no">
-                                                <label class="form-check-label" for="transportNo">No</label>
-                                            </div>
-                                        </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+                                        <div class="invalid-feedback">Please enter a valid email.</div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2">Do you have a smartphone for scheduling and communication? *</label>
-                                        <div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasSmartphone" id="smartphoneYes" value="yes" required>
-                                                <label class="form-check-label" for="smartphoneYes">Yes</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasSmartphone" id="smartphoneNo" value="no">
-                                                <label class="form-check-label" for="smartphoneNo">No</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="hoursPerWeek">How many hours per week are you looking to work? *</label>
-                                        <select class="form-select" id="hoursPerWeek" name="hoursPerWeek" required>
-                                            <option value="">Select...</option>
-                                            <option value="10-15">10-15 hours</option>
-                                            <option value="15-20">15-20 hours</option>
-                                            <option value="20+">20+ hours</option>
-                                            <option value="flexible">Flexible</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2">What days are you generally available? *</label>
-                                        <div class="row">
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="availability" value="Monday" id="monday">
-                                                    <label class="form-check-label" for="monday">Monday</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="availability" value="Tuesday" id="tuesday">
-                                                    <label class="form-check-label" for="tuesday">Tuesday</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="availability" value="Wednesday" id="wednesday">
-                                                    <label class="form-check-label" for="wednesday">Wednesday</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="availability" value="Thursday" id="thursday">
-                                                    <label class="form-check-label" for="thursday">Thursday</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="availability" value="Friday" id="friday">
-                                                    <label class="form-check-label" for="friday">Friday</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 col-md-4">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="availability" value="Saturday" id="saturday">
-                                                    <label class="form-check-label" for="saturday">Saturday</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="timePreferences">Preferred times (e.g., mornings, afternoons, etc.)</label>
-                                        <input class="form-control" id="timePreferences" name="timePreferences" type="text">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="startDate">When could you start? *</label>
-                                        <input class="form-control" id="startDate" name="startDate" type="date" required>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" required placeholder="Enter your phone number" pattern="[0-9\s\-\(\)\+\.]{10,20}">
+                                        <div class="invalid-feedback">Please enter a valid phone number.</div>
                                     </div>
                                 </div>
-                                <!-- Experience & Background -->
-                                <h3 class="fs-5 mb-4 mt-5">Experience & Background</h3>
-                                <div class="row gap-3 mb-4">
-                                    <div class="col-md-12">
-                                        <label class="mb-2">Do you have previous cleaning experience? *</label>
-                                        <div class="mb-2">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasCleaningExp" id="cleaningExpYes" value="yes" required>
-                                                <label class="form-check-label" for="cleaningExpYes">Yes</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasCleaningExp" id="cleaningExpNo" value="no">
-                                                <label class="form-check-label" for="cleaningExpNo">No</label>
-                                            </div>
-                                        </div>
-                                        <label class="mb-2" for="cleaningExpDetails">If yes, briefly describe:</label>
-                                        <textarea class="form-control" id="cleaningExpDetails" name="cleaningExpDetails" rows="2"></textarea>
+
+                                <div class="mb-4">
+                                    <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="address" name="address" required placeholder="Street address">
+                                    <div class="invalid-feedback">Please enter your address.</div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-5">
+                                        <label for="city" class="form-label">City <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="city" name="city" required placeholder="City">
+                                        <div class="invalid-feedback">Please enter your city.</div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2">Do you have customer service or leadership experience? *</label>
-                                        <div class="mb-2">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasLeadershipExp" id="leadershipExpYes" value="yes" required>
-                                                <label class="form-check-label" for="leadershipExpYes">Yes</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasLeadershipExp" id="leadershipExpNo" value="no">
-                                                <label class="form-check-label" for="leadershipExpNo">No</label>
-                                            </div>
-                                        </div>
-                                        <label class="mb-2" for="leadershipExpDetails">If yes, briefly describe:</label>
-                                        <textarea class="form-control" id="leadershipExpDetails" name="leadershipExpDetails" rows="2"></textarea>
+                                    <div class="col-md-3">
+                                        <label for="state" class="form-label">State <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="state" name="state" required placeholder="State">
+                                        <div class="invalid-feedback">Please enter your state.</div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2">Are you comfortable working independently at client homes? *</label>
-                                        <div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="comfortableIndependent" id="independentYes" value="yes" required>
-                                                <label class="form-check-label" for="independentYes">Yes</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="comfortableIndependent" id="independentNo" value="no">
-                                                <label class="form-check-label" for="independentNo">No</label>
-                                            </div>
+                                    <div class="col-md-4">
+                                        <label for="zipcode" class="form-label">ZIP Code <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="zipcode" name="zipcode" required placeholder="ZIP code">
+                                        <div class="invalid-feedback">Please enter your ZIP code.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Availability & Transportation -->
+                                <h3 class="form-section-title">Availability & Transportation</h3>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Do you have reliable transportation? <span class="text-danger">*</span></label>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="transportation" id="transYes" value="yes" required>
+                                            <label class="btn w-100" for="transYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="transportation" id="transNo" value="no">
+                                            <label class="btn w-100" for="transNo">No</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2">Can you pass a background check? *</label>
-                                        <div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="passBackgroundCheck" id="backgroundYes" value="yes" required>
-                                                <label class="form-check-label" for="backgroundYes">Yes</label>
+                                    <div class="invalid-feedback d-block" style="display: none;" id="transportationError">Please select an option.</div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">What days are you available to work? <span class="text-danger">*</span></label>
+                                    <small class="d-block text-muted mb-2">Select all that apply</small>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="monday" name="availability" value="monday">
+                                                <label class="form-check-label" for="monday">Monday</label>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="passBackgroundCheck" id="backgroundNo" value="no">
-                                                <label class="form-check-label" for="backgroundNo">No</label>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="tuesday" name="availability" value="tuesday">
+                                                <label class="form-check-label" for="tuesday">Tuesday</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="wednesday" name="availability" value="wednesday">
+                                                <label class="form-check-label" for="wednesday">Wednesday</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="thursday" name="availability" value="thursday">
+                                                <label class="form-check-label" for="thursday">Thursday</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="friday" name="availability" value="friday">
+                                                <label class="form-check-label" for="friday">Friday</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="saturday" name="availability" value="saturday">
+                                                <label class="form-check-label" for="saturday">Saturday</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- About You -->
-                                <h3 class="fs-5 mb-4 mt-5">About You</h3>
-                                <div class="row gap-3 mb-4">
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="whyInterested">Why are you interested in working with Minty? * (2-3 sentences)</label>
-                                        <textarea class="form-control" id="whyInterested" name="whyInterested" rows="3" required></textarea>
+
+                                <div class="mb-4">
+                                    <label for="hoursPerWeek" class="form-label">How many hours per week are you looking to work? <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="hoursPerWeek" name="hoursPerWeek" required>
+                                        <option value="">Select hours per week</option>
+                                        <option value="10-20">10-20 hours</option>
+                                        <option value="20-30">20-30 hours</option>
+                                        <option value="30-40">30-40 hours</option>
+                                        <option value="40+">40+ hours</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select your preferred hours.</div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="startDate" class="form-label">When can you start? <span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" id="startDate" name="startDate" required>
+                                    <div class="invalid-feedback">Please select a start date.</div>
+                                </div>
+
+                                <!-- Experience & Skills -->
+                                <h3 class="form-section-title">Experience & Skills</h3>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Do you have professional cleaning experience? <span class="text-danger">*</span></label>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="experience" id="expYes" value="yes" required>
+                                            <label class="btn w-100" for="expYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="experience" id="expNo" value="no">
+                                            <label class="btn w-100" for="expNo">No</label>
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="leadershipInterest">What interests you about the growth opportunity into leadership? * (2-3
-                                            sentences)</label>
-                                        <textarea class="form-control" id="leadershipInterest" name="leadershipInterest" rows="3" required></textarea>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="workStyle">How would you describe your work style in three words? *</label>
-                                        <input class="form-control" id="workStyle" name="workStyle" type="text" required>
+                                    <div class="invalid-feedback d-block" style="display: none;" id="experienceError">Please select an option.</div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="experienceDetails" class="form-label">If yes, please describe your cleaning experience</label>
+                                    <small class="d-block text-muted mb-2">Include where you worked, how long, and what type of cleaning you did</small>
+                                    <textarea class="form-control" id="experienceDetails" name="experienceDetails" rows="4"></textarea>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Are you comfortable cleaning homes with pets?</label>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="pets" id="petsYes" value="yes">
+                                            <label class="btn w-100" for="petsYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="pets" id="petsNo" value="no">
+                                            <label class="btn w-100" for="petsNo">No</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- Optional -->
-                                <h3 class="fs-5 mb-4 mt-5">Optional</h3>
-                                <div class="row gap-3 mb-4">
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="referralSource">How did you hear about us?</label>
-                                        <select class="form-select" id="referralSource" name="referralSource">
-                                            <option value="">Select...</option>
-                                            <option value="indeed">Indeed</option>
-                                            <option value="social-media">Social Media</option>
-                                            <option value="friend">Friend Referral</option>
-                                            <option value="website">Website</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="mb-2" for="additionalInfo">Is there anything else you'd like us to know?</label>
-                                        <textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="3"></textarea>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Do you have any physical limitations that would prevent you from doing cleaning work?</label>
+                                    <small class="d-block text-muted mb-2">This job involves standing, bending, lifting, and repetitive motions</small>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="limitations" id="limitYes" value="yes">
+                                            <label class="btn w-100" for="limitYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="limitations" id="limitNo" value="no">
+                                            <label class="btn w-100" for="limitNo">No</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="mt-4">
-                                    <button class="btn btn-primary fw-semibold" type="submit" id="submitBtn">
-                                        <span id="submitText">Submit Application</span>
-                                        <span id="submitSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+
+                                <div class="mb-4">
+                                    <label for="limitationDetails" class="form-label">If yes, please explain</label>
+                                    <textarea class="form-control" id="limitationDetails" name="limitationDetails" rows="3"></textarea>
+                                </div>
+
+                                <!-- References -->
+                                <h3 class="form-section-title">References</h3>
+
+                                <div class="mb-4">
+                                    <label for="reference1Name" class="form-label">Reference 1 - Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="reference1Name" name="reference1Name" required placeholder="Full name">
+                                    <div class="invalid-feedback">Please provide a reference name.</div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label for="reference1Phone" class="form-label">Reference 1 - Phone <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" id="reference1Phone" name="reference1Phone" required placeholder="Phone number">
+                                        <div class="invalid-feedback">Please provide a phone number.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="reference1Relationship" class="form-label">Reference 1 - Relationship <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="reference1Relationship" name="reference1Relationship" required placeholder="e.g., Former supervisor">
+                                        <div class="invalid-feedback">Please describe your relationship.</div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="reference2Name" class="form-label">Reference 2 - Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="reference2Name" name="reference2Name" required placeholder="Full name">
+                                    <div class="invalid-feedback">Please provide a reference name.</div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label for="reference2Phone" class="form-label">Reference 2 - Phone <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" id="reference2Phone" name="reference2Phone" required placeholder="Phone number">
+                                        <div class="invalid-feedback">Please provide a phone number.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="reference2Relationship" class="form-label">Reference 2 - Relationship <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="reference2Relationship" name="reference2Relationship" required placeholder="e.g., Colleague">
+                                        <div class="invalid-feedback">Please describe your relationship.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Additional Information -->
+                                <h3 class="form-section-title">Additional Information</h3>
+
+                                <div class="mb-4">
+                                    <label for="whyWork" class="form-label">Why do you want to work for Minty Clean? <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="whyWork" name="whyWork" rows="4" required></textarea>
+                                    <div class="invalid-feedback">Please tell us why you want to work here.</div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="strengths" class="form-label">What are your greatest strengths?</label>
+                                    <textarea class="form-control" id="strengths" name="strengths" rows="3"></textarea>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="hearAbout" class="form-label">How did you hear about this position?</label>
+                                    <select class="form-select" id="hearAbout" name="hearAbout">
+                                        <option value="">Select an option</option>
+                                        <option value="website">Company Website</option>
+                                        <option value="indeed">Indeed</option>
+                                        <option value="craigslist">Craigslist</option>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="referral">Referral from friend/family</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="additionalInfo" class="form-label">Is there anything else you'd like us to know?</label>
+                                    <textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="3"></textarea>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="text-center mt-5">
+                                    <button type="submit" class="btn">
+                                        Submit Application
                                     </button>
+                                    <p class="tos-text">
+                                        By submitting this application, you acknowledge that the information provided is accurate
+                                    </p>
                                 </div>
                             </form>
-                            <div class="mt-3 d-none alert alert-success" id="successMessage">
-                                <strong>Application submitted successfully!</strong><br> Thanks for applying to join the Minty team! We review applications quickly and will reach out via email within 24 hours if your qualifications match what we're looking for.
+
+                            <!-- Success Message (hidden by default) -->
+                            <div id="successMessage" class="success-message" style="display: none;">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <h2>Application submitted successfully!</h2>
+                                <p class="lead mb-4">
+                                    Thank you for applying to Minty Clean! We've received your application and will review it carefully. 
+                                    If your qualifications match what we're looking for, we'll reach out to schedule an interview.
+                                </p>
+                                <div class="alert mb-0">
+                                    We typically respond within 3-5 business days. Check your email (and spam folder) for updates!
+                                </div>
                             </div>
-                            <div class="mt-3 d-none alert alert-danger" id="errorMessage">
-                                <strong>Submission failed.</strong><br>
-                                <span id="errorDetails">Please check your connection and try again.</span>
-                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="sidebar-element">
+                            <i class="bi bi-clipboard-check"></i>
+                            <strong>Apply Today</strong>
+                            <p>Fill out the application form completely and honestly. It takes about 10 minutes.</p>
+                        </div>
+
+                        <div class="sidebar-element">
+                            <i class="bi bi-phone"></i>
+                            <strong>We'll Review Your Info</strong>
+                            <p>We carefully review every application and will contact qualified candidates for an interview.</p>
+                        </div>
+
+                        <div class="sidebar-element">
+                            <i class="bi bi-people"></i>
+                            <strong>Join Our Team</strong>
+                            <p>If you're a good fit, we'll bring you on board and train you in our cleaning methods.</p>
+                        </div>
+
+                        <div class="summary-box">
+                            <h3>What We're Looking For</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Reliable & punctual</strong>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Detail-oriented</strong>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Honest & trustworthy</strong>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Team player</strong>
+                                </li>
+                                <li class="mb-0">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Professional attitude</strong>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Footer -->
+
+        <script>
+            // Form validation and submission
+            const form = document.getElementById('careerForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                if (!form.checkValidity()) {
+                    event.stopPropagation();
+                    form.classList.add('was-validated');
+                } else {
+                    // Hide form and show success message
+                    document.getElementById('form-header').style.display = 'none';
+                    form.style.display = 'none';
+                    document.querySelector('hr').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+
+                    // Scroll to top of form container
+                    document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                    // In a real implementation, send form data to server
+                    console.log('Application submitted successfully!');
+                }
+            });
+        </script>
+
         <footer class="footer pt-5 pb-5">
             <div class="container">
                 <div class="row justify-content-between mb-5 g-xl-5">
@@ -344,28 +497,20 @@
                     <div class="col-md-7">
                         <div class="row g-2">
                             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                                <h3 class="mb-3">Company</h3>
+                                <h3 class="mb-4">Company</h3>
                                 <ul class="list-unstyled">
-                                    <li>
-                                        <a href="index.html#about">About</a>
-                                    </li>
-                                    <li>
-                                         <a href="/careers">Careers
-                                            <span class="badge ms-1">we're hiring</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="index.html#services">Services</a>
-                                    </li>
+                                    <li><a href="index.html#about">About</a></li>
+                                    <li><a href="/careers">Careers <span class="badge ms-1">we're hiring</span></a></li>
+                                    <li><a href="index.html#services">Services</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 quick-contact">
-                                <h3 class="mb-3">Contact</h3>
-                                <p class="d-flex mb-3">
+                                <h3 class="mb-4">Contact</h3>
+                                <p class="d-flex mb-4">
                                     <i class="bi bi-geo-alt-fill me-3"></i>
                                     <span>Tucson, AZ</span>
                                 </p>
-                                <a class="d-flex mb-3" href="mailto:hello@callminty.com">
+                                <a class="d-flex mb-4" href="mailto:hello@callminty.com">
                                     <i class="bi bi-envelope-fill me-3"></i>
                                     <span>hello@callminty.com</span>
                                 </a>
@@ -374,96 +519,13 @@
                     </div>
                 </div>
                 <div class="row credits pt-3">
-                    <div class="col-xl-8 text-center text-xl-start mb-3 mb-xl-0">
+                    <div class="col-xl-8 text-center text-xl-start mb-4 mb-xl-0">
                         &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script>
+                        <script>document.write(new Date().getFullYear());</script>
                         Minty Clean. All rights reserved.
                     </div>
                 </div>
             </div>
         </footer>
     </main>
-    <script>
-        // Form submission handler
-        document.getElementById('applicationForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const submitSpinner = document.getElementById('submitSpinner');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            const errorDetails = document.getElementById('errorDetails');
-            // Disable submit button and show spinner
-            submitBtn.disabled = true;
-            submitText.textContent = 'Submitting...';
-            submitSpinner.classList.remove('d-none');
-            successMessage.classList.add('d-none');
-            errorMessage.classList.add('d-none');
-            // Collect form data
-            const formData = new FormData(this);
-            // Get all checked availability days
-            const availabilityDays = [];
-            formData.getAll('availability').forEach(day => availabilityDays.push(day));
-            // Build the data object
-            const data = {
-                firstName: formData.get('firstName'),
-                lastName: formData.get('lastName'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                location: formData.get('location'),
-                hasTransportation: formData.get('hasTransportation'),
-                hasSmartphone: formData.get('hasSmartphone'),
-                hoursPerWeek: formData.get('hoursPerWeek'),
-                availabilityDays: availabilityDays.join(', '),
-                timePreferences: formData.get('timePreferences'),
-                startDate: formData.get('startDate'),
-                hasCleaningExp: formData.get('hasCleaningExp'),
-                cleaningExpDetails: formData.get('cleaningExpDetails'),
-                hasLeadershipExp: formData.get('hasLeadershipExp'),
-                leadershipExpDetails: formData.get('leadershipExpDetails'),
-                comfortableIndependent: formData.get('comfortableIndependent'),
-                passBackgroundCheck: formData.get('passBackgroundCheck'),
-                whyInterested: formData.get('whyInterested'),
-                leadershipInterest: formData.get('leadershipInterest'),
-                workStyle: formData.get('workStyle'),
-                referralSource: formData.get('referralSource'),
-                additionalInfo: formData.get('additionalInfo'),
-                submittedAt: new Date().toISOString()
-            };
-            try { // TODO: Replace with your actual n8n webhook URL
-                const webhookUrl = 'https://n8n.supergoodsystems.com/webhook/ad3169b5-7ab0-431c-9713-f39b439d6f99';
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-                if (response.ok) { // Success
-                    successMessage.classList.remove('d-none');
-                    this.reset();
-                    // Scroll to success message
-                    successMessage.scrollIntoView({behavior: 'smooth', block: 'center'});
-                } else {
-                    throw new Error('Server responded with ' + response.status);
-                }
-            } catch (error) { // Error
-                console.error('Submission error:', error);
-                errorDetails.textContent = 'Please check your connection and try again. If the problem persists, email us at hello@callminty.com';
-                errorMessage.classList.remove('d-none');
-                // Scroll to error message
-                errorMessage.scrollIntoView({behavior: 'smooth', block: 'center'});
-            } finally { // Re-enable submit button
-                submitBtn.disabled = false;
-                submitText.textContent = 'Submit Application';
-                submitSpinner.classList.add('d-none');
-            }
-        });
-        // Initialize AOS
-        if (typeof AOS !== 'undefined') {
-            AOS.init({duration: 800, easing: 'ease-in-out', once: true, mirror: false});
-        }
-    </script>
 {% endblock %}
