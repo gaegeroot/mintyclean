@@ -1,13 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Grab sections and nav links
-    const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".fbs__net-navbar .scroll-link");
 
     if (!navLinks.length) return;
 
+    // Detect homepage (adjust if your homepage URL is different)
+    const isHomePage =
+        window.location.pathname === "/" ||
+        window.location.pathname === "/index.html";
+
+    // Always clear active classes on load
     function removeActiveClasses() {
         navLinks.forEach(link => link.classList.remove("active"));
     }
+
+    // If NOT on homepage → highlight based on exact URL OR highlight nothing
+    if (!isHomePage) {
+        removeActiveClasses();
+
+        // Optional: highlight a matching nav link if one exists
+        const matchingNav = document.querySelector(
+            `.fbs__net-navbar .scroll-link[href="${window.location.pathname}"]`
+        );
+
+        if (matchingNav) matchingNav.classList.add("active");
+
+        return; // stop here → do not run scroll-based logic
+    }
+
+    // ---- HOMEPAGE LOGIC BELOW (your original logic preserved) ----
+
+    const sections = document.querySelectorAll("section[id]");
 
     function addActiveClass(id) {
         const activeLink = document.querySelector(
@@ -17,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function getCurrentSection() {
-        let currentSection = 'home'; // default to top
+        let currentSection = "home"; 
         let minDistance = Infinity;
 
         sections.forEach(section => {
