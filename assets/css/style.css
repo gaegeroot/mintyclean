@@ -58,6 +58,16 @@ input[type="range"]::-webkit-slider-thumb:active {
   background-color:  var(--bs-primary);
 }
 
+.form-check {
+    display: flex;
+    gap: 10px;
+    padding-left: calc(var(--bs-gutter-x) * .5);
+}
+
+.form-check .form-check-input {
+    margin-left: 0;
+}
+
 .form-check-input:checked {
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
