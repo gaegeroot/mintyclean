@@ -102,11 +102,8 @@
         }
         .success-message .alert {
             border-radius: 0.75rem;
-            padding: 1rem;
-            background-color: #ffc107;
-            border: none;
-            color: #000;
-            font-weight: 600;
+            background-color: #215c5c;
+            color: #fff;
         }
         hr {
             margin: 2.5rem 0;
@@ -517,13 +514,13 @@
                         ? 's'
                         : ''
                     }, ${ba} Bathroom${
-                        ba != 1
-                            ? 's'
-                            : ''
-                        }</strong>
+                    ba != 1
+                        ? 's'
+                        : ''
+                    }</strong>
                     <small class="text-muted">${
-                            parseInt(s).toLocaleString()
-                        } Square Feet</small>
+                    parseInt(s).toLocaleString()
+                } Square Feet</small>
                 </div>
             </div>
         `;
@@ -597,7 +594,8 @@
                     validateField('phone', field => {
                         if (!field.value.trim()) 
                             return true;
-                         // Optional field
+                        
+                        // Optional field
                         const phoneRegex = /[0-9\s\-\(\)\+\.]{10,20}/;
                         return phoneRegex.test(field.value);
                     })
