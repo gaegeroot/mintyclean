@@ -31,6 +31,7 @@ const RAW_RUNTIME_STATE =
           ["@11ty/eleventy", "npm:3.1.2"],\
           ["bootstrap", "virtual:be17e00f26f97d02bedc6be823632dca0c80e6634058f715f0092aa37502b0468098ea5c86a2f8c14d520f160666b6711583c44aab1b15c6f71c374f91ebbd95#npm:5.3.8"],\
           ["eleventy-sass", "virtual:be17e00f26f97d02bedc6be823632dca0c80e6634058f715f0092aa37502b0468098ea5c86a2f8c14d520f160666b6711583c44aab1b15c6f71c374f91ebbd95#npm:3.0.0-beta.0"],\
+          ["luxon", "npm:3.7.2"],\
           ["minty-clean-1.0", "workspace:."],\
           ["sass", "npm:1.93.3"],\
           ["stripe", "npm:17.7.0"]\
@@ -1978,6 +1979,7 @@ const RAW_RUNTIME_STATE =
           ["@11ty/eleventy", "npm:3.1.2"],\
           ["bootstrap", "virtual:be17e00f26f97d02bedc6be823632dca0c80e6634058f715f0092aa37502b0468098ea5c86a2f8c14d520f160666b6711583c44aab1b15c6f71c374f91ebbd95#npm:5.3.8"],\
           ["eleventy-sass", "virtual:be17e00f26f97d02bedc6be823632dca0c80e6634058f715f0092aa37502b0468098ea5c86a2f8c14d520f160666b6711583c44aab1b15c6f71c374f91ebbd95#npm:3.0.0-beta.0"],\
+          ["luxon", "npm:3.7.2"],\
           ["minty-clean-1.0", "workspace:."],\
           ["sass", "npm:1.93.3"],\
           ["stripe", "npm:17.7.0"]\
