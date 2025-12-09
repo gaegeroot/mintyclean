@@ -1,18 +1,38 @@
-name: Deploy Netlify Functions
+name: Deploy 11ty site to Netlify
 
 on:
   push:
-    branches: [ main ]
+    branches: ["main"]
     paths:
       - 'netlify/functions/**'
-      - '.github/workflows/deploy-netlify-functions.yml'
+  
+  workflow_dispatch:
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "netlify-deploy"
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build with 11ty
+        run: yarn build-ghpages
 
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
@@ -22,6 +42,9 @@ jobs:
           netlify deploy \
             --site ${{ secrets.NETLIFY_SITE_ID }} \
             --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
+            --dir _site \
             --functions netlify/functions \
-            --prod \
-            --build false
+            --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
