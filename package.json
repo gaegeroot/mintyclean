@@ -15,7 +15,8 @@
   "type": "commonjs",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "bootstrap": "^5.3.8"
+    "bootstrap": "^5.3.8",
+    "stripe": "^17.5.0"
   },
   "packageManager": "yarn@4.11.0",
   "devDependencies": {

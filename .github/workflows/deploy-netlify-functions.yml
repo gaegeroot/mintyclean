@@ -8,7 +8,6 @@ on:
   
   workflow_dispatch:
 
-# Allow only one concurrent deployment
 concurrency:
   group: "netlify-deploy"
   cancel-in-progress: false
@@ -34,6 +33,18 @@ jobs:
       - name: Build with 11ty
         run: yarn build-ghpages
 
+      - name: Prepare functions for deployment
+        run: |
+          mkdir -p netlify/functions-deploy/create-checkout-session
+          cp netlify/functions/create-checkout-session.js netlify/functions-deploy/create-checkout-session/
+          cd netlify/functions-deploy/create-checkout-session
+          npm init -y
+          npm install stripe
+          cd ../../..
+          cd netlify/functions-deploy
+          zip -r create-checkout-session.zip create-checkout-session
+          cd ../..
+
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
 
@@ -43,7 +54,7 @@ jobs:
             --site ${{ secrets.NETLIFY_SITE_ID }} \
             --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
             --dir _site \
-            --functions netlify/functions \
+            --functions netlify/functions-deploy \
             --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
