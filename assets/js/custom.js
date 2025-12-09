@@ -556,3 +556,14 @@ const countdownInit = () => {
 };
 document.addEventListener('DOMContentLoaded', countdownInit);
 
+async function checkout(priceId) {
+  const res = await fetch("https://mintyclean.netlify.app/.netlify/functions/create-checkout-session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ priceId }),
+  });
+
+  const data = await res.json();
+  window.location = data.url;
+}
+
