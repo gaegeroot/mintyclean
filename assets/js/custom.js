@@ -557,6 +557,8 @@ const countdownInit = () => {
 document.addEventListener('DOMContentLoaded', countdownInit);
 
 async function checkout(priceId) {
+  console.log("PRICE ID:", priceId); // <— debug
+
   const res = await fetch("https://mintyclean.netlify.app/.netlify/functions/create-checkout-session", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -564,6 +566,14 @@ async function checkout(priceId) {
   });
 
   const data = await res.json();
-  window.location = data.url;
+  console.log("RESPONSE:", data); // <— debug
+
+  if (!data.url) {
+    alert("Error: No checkout URL returned");
+    return;
+  }
+
+  window.location.href = data.url;
 }
+
 
