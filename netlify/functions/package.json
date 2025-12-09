@@ -1,7 +1,8 @@
 {
   "name": "netlify-functions",
   "version": "1.0.0",
+  "type": "module",
   "dependencies": {
-    "stripe": "^20.0.0"
+    "stripe": "^17.5.0"
   }
 }
