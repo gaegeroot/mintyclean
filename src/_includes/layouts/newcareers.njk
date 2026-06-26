@@ -1,0 +1,1020 @@
+{% extends "base.njk" %}
+{% block content %}
+    <style>
+        .subtitle {
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .sidebar-element {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .sidebar-element i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .sidebar-element strong {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .sidebar-element p {
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .summary-box {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            position: sticky;
+            top: 80px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .summary-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .form-control,
+        .form-select {
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-family: 'Quattrocento', serif;
+        }
+        .form-control:focus,
+        .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.1);
+        }
+        .tos-text {
+            font-size: 0.875rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+        small.text-muted {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+        .success-message {
+            text-align: center;
+            padding: 3rem;
+        }
+        .success-message i {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+        .success-message h2 {
+            margin-bottom: 1rem;
+        }
+        .success-message .alert {
+            border-radius: 0.75rem;
+            padding: 1rem;
+            background-color: #198754;
+            border: none;
+            color: #fff;
+            font-weight: 600;
+        }
+        hr {
+            margin: 2.5rem 0;
+            opacity: 0.1;
+        }
+    </style>
+    <style>
+        /* ── Page-level layout ── */
+        .subtitle {
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .form-container {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .sidebar-element {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .sidebar-element i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .sidebar-element strong {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .sidebar-element p {
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .summary-box {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            position: sticky;
+            top: 80px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .summary-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .form-control,
+        .form-select {
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-family: 'Quattrocento', serif;
+        }
+        .form-control:focus,
+        .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.1);
+        }
+        .tos-text {
+            font-size: 0.875rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+        small.text-muted {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+        hr {
+            margin: 2.5rem 0;
+            opacity: 0.1;
+        }
+        /* ── Opportunity overview section ── */
+        .opportunity-section {
+            background: linear-gradient(135deg, #f8fffe 0%, #edfaf5 100%);
+            border-radius: 1rem;
+            padding: 2.5rem 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+        }
+        .opportunity-section h2 {
+            margin-bottom: 1rem;
+        }
+        .opportunity-section p {
+            color: #444;
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 0;
+        }
+        /* ── Benefits section ── */
+        .benefits-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+        .benefits-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+        }
+        .benefits-section .section-intro {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        @media(max-width: 576px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 1rem 1.1rem;
+            border-radius: 0.6rem;
+            background: #f8fffe;
+            border: 1px solid #e4f5ef;
+        }
+        .benefit-item i {
+            font-size: 1.2rem;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+        .benefit-item strong {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+        .benefit-item p {
+            font-size: 0.82rem;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        /* ── Video callout ── */
+        .video-callout {
+            background: linear-gradient(135deg, #f8fffe 0%, #edfaf5 100%);
+            border-radius: 1rem;
+            padding: 2.5rem 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+            text-align: center;
+        }
+        .video-callout .eyebrow {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #28a745;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+        .video-callout h2 {
+            margin-bottom: 0.4rem;
+        }
+        .video-callout .video-subhead {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .video-wrapper {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background: #111;
+            aspect-ratio: 16 / 9;
+        }
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        /* ── Legal disclosure box ── */
+        .legal-disclosure {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.65;
+            margin-top: 1.75rem;
+        }
+        .legal-disclosure strong {
+            color: #333;
+        }
+        /* ── Success message ── */
+        .success-message {
+            text-align: center;
+            padding: 3rem;
+        }
+        .success-message i {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+        .success-message h2 {
+            margin-bottom: 1rem;
+        }
+        .success-message .alert {
+            border-radius: 0.75rem;
+            padding: 1rem;
+            background-color: #198754;
+            border: none;
+            color: #fff;
+            font-weight: 600;
+        }
+    </style>
+    <main>
+        <section class="section">
+            <div class="container">
+                <div
+                    class="row">
+                    <!-- ════════════════════════════════════
+                         MAIN COLUMN
+                    ════════════════════════════════════ -->
+                    <div
+                        class="col-lg-8">
+                        <!-- ── Video Callout ── -->
+                        <div class="video-callout">
+                            <span class="eyebrow">Independent Contractor Opportunity</span>
+                            <h2>Want to add 3–5 weekly cleans?</h2>
+                            <p class="video-subhead">Watch this first - it's about a minute.</p>
+                            <div class="video-wrapper">
+                                <video controls>
+                                    <source src="https://pub-8240a48ff747403ab36500bc6295feea.r2.dev/cleaners.mov" type="video/mp4"> Your browser doesn't
+                                    support video playback.
+                                </video>
+                            </div>
+                        </div>
+                        <!-- ── Opportunity Overview ── -->
+                        <div class="opportunity-section">
+                            <h2 class="mb-3">Partner with Minty Clean</h2>
+                            <p>
+                                We're a Tucson residential cleaning company that handles the bookings, the clients, and the scheduling. You handle the
+                                cleaning. It's a 1099 contractor relationship — you're running your own operation, and we're running ours. We pay our
+                                cleaning partners well because good work deserves it.
+                            </p>
+                            <p class="mt-3">
+                                Partners who show up reliably and take pride in their work get consistent jobs. Partners who don't meet our standards
+                                don't stay on. We're straightforward about that because it's better for everyone - especially the people who are serious
+                                about doing this well.
+                            </p>
+                            <p class="mt-3">
+                                This is a professional operation. Every job has client-facing expectations — things like wearing shoe coverings, doing a
+                                walkthrough with the client at the end of each clean, arriving on time, and representing Minty Clean while you're on the
+                                job. Not unreasonable asks. Just the standard we hold ourselves to.
+                            </p>
+                            <!-- Legal disclosure -->
+                            <div class="legal-disclosure">
+                                <strong>Independent Contractor Notice:</strong>
+                                This is not an employment position. Contractors are self-employed and responsible for their own taxes, insurance, and
+                                equipment. You will receive a Form 1099 at year-end if earnings meet IRS thresholds.
+                            </div>
+                        </div>
+                        <!-- ── Benefits ── -->
+                        <div class="benefits-section">
+                            <span class="subtitle">Why Work With Us</span>
+                            <h3>What you get out of this</h3>
+                            <p class="section-intro">Beyond the flexibility of being your own boss, partnering with Minty Clean solves the hardest
+                                parts of running an independent cleaning operation.</p>
+                            <div class="benefits-grid">
+                                <div class="benefit-item">
+                                    <i class="bi bi-calendar2-week text-success"></i>
+                                    <div>
+                                        <strong>Regular, reliable workflow</strong>
+                                        <p>We keep a full book of recurring clients. Good partners don't scramble for work - it comes to them.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-megaphone text-success"></i>
+                                    <div>
+                                        <strong>No lead generation on your end</strong>
+                                        <p>We handle all the marketing, advertising, and client acquisition. You just clean. Zero time or money spent chasing
+                                            new customers.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-cash-coin text-success"></i>
+                                    <div>
+                                        <strong>Premium pay per job</strong>
+                                        <p>We pay above-market rates because we want serious people. If you do good work, you'll earn well here.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-clock text-success"></i>
+                                    <div>
+                                        <strong>Set your own schedule</strong>
+                                        <p>Take jobs when you want them. No mandatory shifts, no minimum hours. You're in control of your time.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-receipt text-success"></i>
+                                    <div>
+                                        <strong>No invoicing or chasing payments</strong>
+                                        <p>We handle all client billing and collections. You get paid for your work, cleanly and on time.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-people text-success"></i>
+                                    <div>
+                                        <strong>Freedom to work elsewhere</strong>
+                                        <p>We don't require exclusivity. Work with other clients or companies on your own time - that's your business.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-graph-up-arrow text-success"></i>
+                                    <div>
+                                        <strong>Opportunity to grow with us</strong>
+                                        <p>As we expand, our best partners get first access to more jobs, new service areas, and higher-value clients.</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="bi bi-shield-check text-success"></i>
+                                    <div>
+                                        <strong>Vetted, trustworthy clients</strong>
+                                        <p>We screen our customers. You show up to homes where you're expected, welcomed, and respected.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ── Application Form ── -->
+                        <div class="form-container">
+                            <div class="text-center mb-5" id="form-header">
+                                <span class="subtitle">Contractor Application</span>
+                                <h2 class="mb-4">Apply to Partner with Minty Clean</h2>
+                                <h5 class="text-muted fw-normal mb-4">Tell us about your experience and how you work</h5>
+                                <p class="text-muted">
+                                    This form takes about 10 minutes. We review every application and reach out to qualified candidates within a few
+                                    business days.
+                                </p>
+                            </div>
+                            <hr>
+                            <form
+                                id="careerForm" novalidate>
+                                <!-- ── Personal Information ── -->
+                                <h3 class="form-section-title">Personal Information</h3>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">First Name
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" required placeholder="Enter your first name">
+                                        <div class="invalid-feedback">Please enter your first name.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Last Name
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" required placeholder="Enter your last name">
+                                        <div class="invalid-feedback">Please enter your last name.</div>
+                                    </div>
+                                </div>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+                                        <div class="invalid-feedback">Please enter a valid email.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            class="form-control"
+                                            id="phone"
+                                            name="phone"
+                                            required
+                                            placeholder="Enter your phone number"
+                                            pattern="[0-9\s\-\(\)\+\.]{10,20}">
+                                        <div class="invalid-feedback">Please enter a valid phone number.</div>
+                                    </div>
+                                </div>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-5">
+                                        <label for="city" class="form-label">City
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="city" name="city" required placeholder="City">
+                                        <div class="invalid-feedback">Please enter your city.</div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="state" class="form-label">State
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="state" name="state" required placeholder="State">
+                                        <div class="invalid-feedback">Please enter your state.</div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="zipcode" class="form-label">ZIP Code
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control" id="zipcode" name="zipcode" required placeholder="ZIP code">
+                                        <div class="invalid-feedback">Please enter your ZIP code.</div>
+                                    </div>
+                                </div>
+                                <!-- ── Transportation & Service Area ── -->
+                                <h3 class="form-section-title">Transportation & Service Area</h3>
+                                <div class="mb-4">
+                                    <label class="form-label">Do you have reliable personal transportation?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <small class="d-block text-muted mb-2">You'll need your own vehicle to travel between client homes</small>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="transportation" id="transYes" value="true" required>
+                                            <label class="btn w-100" for="transYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="transportation" id="transNo" value="false">
+                                            <label class="btn w-100" for="transNo">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="invalid-feedback" style="display:none;" id="transportationError">Please select an option.</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="serviceRadius" class="form-label">How far are you willing to travel for jobs?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select" id="serviceRadius" name="serviceRadius" required>
+                                        <option value="">Select a range</option>
+                                        <option value="5">Up to 5 miles</option>
+                                        <option value="10">Up to 10 miles</option>
+                                        <option value="20">Up to 20 miles</option>
+                                        <option value="any">Anywhere in Tucson metro</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select your travel range.</div>
+                                </div>
+                                <!-- ── Availability ── -->
+                                <h3 class="form-section-title">Availability</h3>
+                                <div class="mb-4">
+                                    <label for="jobsPerWeek" class="form-label">How many jobs per week are you looking to take on?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select" id="jobsPerWeek" name="jobsPerWeek" required>
+                                        <option value="">Select an estimate</option>
+                                        <option value="1-3">1–3 jobs/week</option>
+                                        <option value="4-6">4–6 jobs/week</option>
+                                        <option value="7-10">7–10 jobs/week</option>
+                                        <option value="10+">10+ jobs/week</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select your preferred job volume.</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="startDate" class="form-label">When are you available to start taking jobs?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="date" class="form-control" id="startDate" name="startDate" required>
+                                    <div class="invalid-feedback">Please select a start date.</div>
+                                </div>
+                                <!-- ── Business & Contractor Status ── -->
+                                <h3 class="form-section-title">Business & Contractor Status</h3>
+                                <p class="text-muted mb-3" style="font-size:0.9rem;">
+                                    These questions help us understand your setup as an independent contractor.
+                                </p>
+                                <div class="mb-4">
+                                    <label class="form-label">Do you currently operate as a sole proprietor or registered business?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-4">
+                                            <input type="radio" class="btn-check" name="businessStatus" id="bizSole" value="sole_proprietor" required>
+                                            <label class="btn w-100" for="bizSole">Sole Proprietor</label>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <input type="radio" class="btn-check" name="businessStatus" id="bizRegistered" value="registered_business">
+                                            <label class="btn w-100" for="bizRegistered">Registered Business</label>
+                                        </div>
+                                        <div class="col-6 col-md-4">
+                                            <input type="radio" class="btn-check" name="businessStatus" id="bizNeither" value="neither">
+                                            <label class="btn w-100" for="bizNeither">Neither / Not Sure</label>
+                                        </div>
+                                    </div>
+                                    <div class="invalid-feedback" style="display:none;" id="businessStatusError">Please select an option.</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Do you currently provide cleaning services to other clients outside of Minty Clean?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <small class="d-block text-muted mb-2">This is completely fine - we don't require exclusivity</small>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="otherClients" id="otherYes" value="true" required>
+                                            <label class="btn w-100" for="otherYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="otherClients" id="otherNo" value="false">
+                                            <label class="btn w-100" for="otherNo">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="invalid-feedback" style="display:none;" id="otherClientsError">Please select an option.</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Do you carry your own general liability insurance?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <small class="d-block text-muted mb-2">Preferred but not currently required to apply</small>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="insurance" id="insYes" value="true" required>
+                                            <label class="btn w-100" for="insYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="insurance" id="insNo" value="false">
+                                            <label class="btn w-100" for="insNo">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="invalid-feedback" style="display:none;" id="insuranceError">Please select an option.</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Do you have your own cleaning supplies and equipment?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <small class="d-block text-muted mb-2">Note: Minty Clean may supply specific products for brand consistency on certain
+                                        jobs</small>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="ownSupplies" id="suppliesYes" value="true" required>
+                                            <label class="btn w-100" for="suppliesYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="ownSupplies" id="suppliesNo" value="false">
+                                            <label class="btn w-100" for="suppliesNo">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="invalid-feedback" style="display:none;" id="suppliesError">Please select an option.</div>
+                                </div>
+                                <!-- ── Experience & Skills ── -->
+                                <h3 class="form-section-title">Experience & Skills</h3>
+                                <div class="mb-4">
+                                    <label class="form-label">Do you have professional cleaning experience?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="experience" id="expYes" value="true" required>
+                                            <label class="btn w-100" for="expYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="experience" id="expNo" value="false">
+                                            <label class="btn w-100" for="expNo">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="invalid-feedback" style="display:none;" id="experienceError">Please select an option.</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="experienceDetails" class="form-label">Describe your cleaning experience</label>
+                                    <small class="d-block text-muted mb-2">Where you've worked, for how long, and what kind of cleaning (residential,
+                                        commercial, etc.)</small>
+                                    <textarea class="form-control" id="experienceDetails" name="experienceDetails" rows="4"></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Are you comfortable cleaning homes with pets?</label>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="pets" id="petsYes" value="true">
+                                            <label class="btn w-100" for="petsYes">Yes</label>
+                                        </div>
+                                        <div class="col-6 col-md-3">
+                                            <input type="radio" class="btn-check" name="pets" id="petsNo" value="false">
+                                            <label class="btn w-100" for="petsNo">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="serviceTypes" class="form-label">What types of cleaning are you comfortable with?</label>
+                                    <small class="d-block text-muted mb-2">Select all that apply</small>
+                                    <div class="row g-2">
+                                        <div class="col-6 col-md-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="svcStandard" name="serviceTypes" value="standard">
+                                                <label class="form-check-label" for="svcStandard">Standard recurring clean</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="svcDeep" name="serviceTypes" value="deep">
+                                                <label class="form-check-label" for="svcDeep">Deep clean</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="svcMoveout" name="serviceTypes" value="moveout">
+                                                <label class="form-check-label" for="svcMoveout">Move-in / move-out clean</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="svcPostconstruction" name="serviceTypes" value="postconstruction">
+                                                <label class="form-check-label" for="svcPostconstruction">Post-construction clean</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ── Additional Information ── -->
+                                <h3 class="form-section-title">Additional Information</h3>
+                                <div class="mb-4">
+                                    <label for="whyWork" class="form-label">Why are you interested in contracting with Minty Clean?
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control" id="whyWork" name="whyWork" rows="4" required></textarea>
+                                    <div class="invalid-feedback">Please tell us why you're interested.</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="strengths" class="form-label">What makes you a reliable, high-quality cleaner?</label>
+                                    <textarea class="form-control" id="strengths" name="strengths" rows="3"></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="hearAbout" class="form-label">How did you hear about this opportunity?</label>
+                                    <select class="form-select" id="hearAbout" name="hearAbout">
+                                        <option value="">Select an option</option>
+                                        <option value="website">Minty Clean Website</option>
+                                        <option value="indeed">Indeed</option>
+                                        <option value="craigslist">Craigslist</option>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="referral">Referral from someone I know</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="additionalInfo" class="form-label">Anything else you'd like us to know?</label>
+                                    <textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="3"></textarea>
+                                </div>
+                                <!-- ── Acknowledgment ── -->
+                                <h3 class="form-section-title">Acknowledgment</h3>
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="ackContractor" name="ackContractor" required>
+                                        <label class="form-check-label" for="ackContractor">
+                                            I understand that this is an
+                                            <strong>independent contractor opportunity</strong>, not an employment position. I am responsible for my own taxes,
+                                                insurance, and equipment.
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="invalid-feedback">You must acknowledge the contractor relationship to proceed.</div>
+                                    </div>
+                                </div>
+                                <!-- Submit -->
+                                <div class="text-center mt-5">
+                                    <button type="submit" class="btn">Submit Application</button>
+                                    <p class="tos-text">
+                                        By submitting, you confirm that all information provided is accurate and complete.
+                                    </p>
+                                </div>
+                            </form>
+                            <!-- Success Message -->
+                            <div id="successMessage" class="success-message" style="display:none;">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <h2>Application received!</h2>
+                                <p class="lead mb-4">
+                                    Thanks for your interest in partnering with Minty Clean. We'll review your application and reach out to qualified
+                                    candidates to discuss next steps.
+                                </p>
+                                <div class="alert mb-0">
+                                    Expect to hear back within 3–5 business days. Check your spam folder too!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ════════════════════════════════════
+                         SIDEBAR
+                    ════════════════════════════════════ -->
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="sidebar-element">
+                            <i class="bi bi-file-earmark-person"></i>
+                            <strong>Apply</strong>
+                            <p>Fill out the application below - it covers your experience, availability, and contractor setup.</p>
+                        </div>
+                        <div class="sidebar-element">
+                            <i class="bi bi-chat-dots"></i>
+                            <strong>We'll Reach Out</strong>
+                            <p>We review every application and contact strong candidates to talk through the opportunity.</p>
+                        </div>
+                        <div class="sidebar-element">
+                            <i class="bi bi-briefcase"></i>
+                            <strong>Start Taking Jobs</strong>
+                            <p>Once onboarded, you'll get access to our scheduling app and can start picking up jobs in your area.</p>
+                        </div>
+                        <div class="summary-box">
+                            <h3>What We're Looking For</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Proven cleaning experience</strong>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Reliable transportation</strong>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Professional, client-facing attitude</strong>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Able to meet our service standards</strong>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Own supplies and equipment</strong>
+                                </li>
+                                <li class="mb-0">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Self-directed and accountable</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/u22ry2fdadl22en3l73f1jjod0s6z1nc';
+            const form = document.getElementById('careerForm');
+            // ── Radio group names that need custom validation ── Bootstrap's :invalid only works on inputs with `required`, but
+            // radio groups need manual handling since only one input in the group carries `required`.
+            const requiredRadioGroups = [
+                'transportation',
+                'businessStatus',
+                'otherClients',
+                'insurance',
+                'ownSupplies',
+                'experience'
+            ];
+            // ── Validate all radio groups and toggle their error messages ──
+            function validateRadioGroups() {
+                let allValid = true;
+                requiredRadioGroups.forEach((name) => {
+                    const selected = form.querySelector (`input[name="${name}"]:checked`);
+                    // Error element ID convention: nameError (e.g. transportationError)
+                    const errorEl = document.getElementById (`${name}Error`);
+                    if (! selected) {
+                        allValid = false;
+                        if (errorEl) 
+                            errorEl.style.display = 'block';
+                        
+                    } else {
+                        if (errorEl) 
+                            errorEl.style.display = 'none';
+                        
+                    }
+                });
+                return allValid;
+            }
+            // ── Collect all form values into a clean JSON object ──
+            function collectFormData() {
+                const get = (id) => document.getElementById(id) ?. value.trim() ?? '';
+                const getRadio = (name) => form.querySelector (`input[name="${name}"]:checked`) ?. value ?? '';
+                const getCheckboxes = (name) => [... form.querySelectorAll (`input[name="${name}"]:checked`)].map((el) => el.value);
+                return {
+                    submittedAt: new Date().toISOString(),
+                    // Personal
+                    firstName: get('firstName'),
+                    lastName: get('lastName'),
+                    email: get('email'),
+                    phone: get('phone'),
+                    city: get('city'),
+                    state: get('state'),
+                    zipcode: get('zipcode'),
+                    // Transportation
+                    hasTransportation: getRadio('transportation'),
+                    serviceRadius: get('serviceRadius'),
+                    // Availability
+                    jobsPerWeek: get('jobsPerWeek'),
+                    startDate: get('startDate'),
+                    // Business & contractor status
+                    businessStatus: getRadio('businessStatus'),
+                    otherClients: getRadio('otherClients'),
+                    hasInsurance: getRadio('insurance'),
+                    hasOwnSupplies: getRadio('ownSupplies'),
+                    // Experience
+                    hasProfessionalExperience: getRadio('experience'),
+                    experienceDetails: get('experienceDetails'),
+                    comfortableWithPets: getRadio('pets'),
+                    serviceTypes: getCheckboxes('serviceTypes'),
+                    // Additional
+                    whyInterested: get('whyWork'),
+                    strengths: get('strengths'),
+                    hearAbout: get('hearAbout'),
+                    additionalInfo: get('additionalInfo'),
+                    // Acknowledgments
+                    acknowledgedContractorStatus: document.getElementById('ackContractor') ?. checked ?? false,
+                    acknowledgedServiceStandards: document.getElementById('ackStandards') ?. checked ?? false
+                };
+            }
+            // ── Show/hide the loading state on the submit button ──
+            function setSubmitting(isSubmitting) {
+                const btn = form.querySelector('button[type="submit"]');
+                if (isSubmitting) {
+                    btn.disabled = true;
+                    btn.dataset.originalText = btn.textContent;
+                    btn.textContent = 'Submitting…';
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = btn.dataset.originalText ?? 'Submit Application';
+                }
+            }
+            // ── Show a persistent error banner above the submit button ──
+            function showSubmitError(message) {
+                let banner = document.getElementById('submitErrorBanner');
+                if (! banner) {
+                    banner = document.createElement('div');
+                    banner.id = 'submitErrorBanner';
+                    banner.style.cssText = 'background:#fff0f0;border:1px solid #f5c2c7;border-radius:0.6rem;padding:1rem 1.25rem;margin-bottom:1.5rem;color:#842029' +
+                            ';font-size:0.9rem;';
+                    const submitArea = form.querySelector('.text-center.mt-5');
+                    form.insertBefore(banner, submitArea);
+                }
+                banner.textContent = message;
+                banner.style.display = 'block';
+                banner.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }
+            function hideSubmitError() {
+                const banner = document.getElementById('submitErrorBanner');
+                if (banner) 
+                    banner.style.display = 'none';
+                
+            }
+            // ── Show the success state ──
+            function showSuccess() {
+                document
+                    .getElementById('form-header')
+                    .style
+                    .display = 'none';
+                form.style.display = 'none';
+                document
+                    .querySelector('hr')
+                    .style
+                    .display = 'none';
+                document
+                    .getElementById('successMessage')
+                    .style
+                    .display = 'block';
+                document.querySelector('.form-container').scrollIntoView({behavior: 'smooth', block: 'start'});
+            }
+            // ── Main submit handler ──
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                hideSubmitError();
+                // 1. Native browser validation (text, email, select, checkboxes, date fields)
+                const nativeValid = form.checkValidity();
+                form.classList.add('was-validated');
+                // 2. Manual radio group validation
+                const radiosValid = validateRadioGroups();
+                if (! nativeValid || ! radiosValid) { // Scroll to the first visible invalid field
+                    const firstInvalid = form.querySelector('.form-control:invalid, .form-select:invalid, .form-check-input:invalid');
+                    if (firstInvalid) {
+                        firstInvalid.scrollIntoView({behavior: 'smooth', block: 'center'});
+                    }
+                    return;
+                }
+                // 3. Submit to Make.com
+                setSubmitting(true);
+                try {
+                    const payload = collectFormData();
+                    const response = await fetch(MAKE_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    if (! response.ok) {
+                        throw new Error (`Server responded with status ${
+                            response.status
+                        }`);
+                    }
+                    showSuccess();
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    showSubmitError(
+                        'Something went wrong submitting your application. Please try again, or reach out to us directly if the problem continues' +
+                        '.'
+                    );
+                    setSubmitting(false);
+                }
+            });
+            // ── Clear individual radio errors as soon as one is selected ──
+            requiredRadioGroups.forEach((name) => {
+                form.querySelectorAll (`input[name="${name}"]`).forEach((radio) => {
+                    radio.addEventListener('change', () => {
+                        const errorEl = document.getElementById (`${name}Error`);
+                        if (errorEl) 
+                            errorEl.style.display = 'none';
+                        
+                    });
+                });
+            });
+        </script>
+    </main>
+{% endblock %}

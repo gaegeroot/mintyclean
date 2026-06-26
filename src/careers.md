@@ -1,4 +1,4 @@
 ---
-layout: "layouts/careers.njk"
+layout: "layouts/newcareers.njk"
 socialImage: "https://callminty.com/assets/images/socials/careers.png"
 ---
