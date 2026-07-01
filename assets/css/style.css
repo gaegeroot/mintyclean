@@ -1309,6 +1309,31 @@ h6 {
   visibility: visible;
 }
 
+.footer .btn-primary .bi-google {
+    color: white;
+}
+
+/* Map embed */
+.footer-map-col h3 {
+  margin-bottom: 0.75rem;
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-map {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile: give the map some breathing room since it now stacks under Contact */
+@media (max-width: 767.98px) {
+  .footer-map-col {
+    margin-top: 2rem;
+  }
+}
+
 @media all and (max-width: 991.98px) {
     main {
         padding-top: 60px;
